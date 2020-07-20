@@ -1,9 +1,187 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
-<body style="background-color:powderblue;">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>YEEC</title>
+    <script src="main.js"></script>
+</head>
+<body style="font-family:Verdana;color:#aaaaaa;">
 
-<h1>This is a heading</h1>
-<p>This is a paragraph.</p>
+    <div style="text-align:center;">
+        <ul style="text-align:center;position:relative;display:inline-block;">
+            <!--<li><button class="button" onclick="Converter()">Converter</button></li>
+            <li><button class="button" onclick="Calculator()">Calculator</button></li>
+            <li><button class="button" onclick="Youtube()">YouTube</button></li>
+            <li style="float:right"><button class="button" onclick="Information()">Information</button></li>-->
+
+            <li><a onclick="Converter()">Converter</a></li>
+            <li id="liCalculator" style="background-color:blue"><a onclick="Calculator()">Calculator</a></li>
+            <li><a onclick="Youtube()">YouTube</a></li>
+            <li id="liInformation"><a onclick="Information()">Information</a></li>
+        </ul>
+    </div>
+
+    <div style="overflow:auto" class="divs">
+        <div id="divCalculator" style="display:inline">
+            <table align="center">
+                <tr>
+                    <td>
+                        <div style="display:inline;text-align:center">
+                            <div>
+                                <input id="TbYouTubeChannelName" placeholder="YouTube Channel Name"><br><br>
+                            </div>
+
+                            <div id="divLblTotalVideoViews">
+                                <label id="LblTotalVideoViews" />
+                            </div>
+
+                            <div>
+                                <input id="TbTotalVideoViews" placeholder="Total Video Views" type="number" min="0" maxlength="13" onkeyup="TbTotalViews_TextChanged()" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"><br><br>
+                            </div>
+
+                            <div id="divLblSubtractNoAdViews">
+                                <label id="LblSubtractNoAdViews" />
+                            </div>
+
+                            <div>
+                                <input id="TbSubtractNoAdViews" placeholder="Subtract No Ad Views" type="number" min="0" maxlength="13" onkeyup="TbSubtractNoAdViews_TextChanged()" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"><br><br>
+                            </div>
+
+                            <div>
+                                <select id="ddlCurrency" onchange="ddlCurrency_IndexChangedEvent()">
+                                    <option value="AED">AED</option>
+                                    <option value="CAD">CAD</option>
+                                    <option value="EUR">EUR</option>
+                                    <option value="GBP">GBP</option>
+                                    <option value="INR" selected="selected">INR</option>
+                                    <option value="KWD">KWD</option>
+                                    <option value="OMR">OMR</option>
+                                    <option value="USD">USD</option>
+                                </select><br><br>
+                            </div>
+
+                            <div>
+                                <input ID="TbMinimumCPT" placeholder="Minimum Cost Per 1000 Views : 0 INR" ReadOnly="readonly" size="32"><br><br>
+                            </div>
+
+                            <div>
+                                <Button class="button button1" ID="BtnMin_Plus" OnClick="Min_Plus()">+</Button>
+                                <Button class="button button1" ID="BtnMin_Minus" OnClick="Min_Minus()">-</Button><br><br>
+                            </div>
+
+                            <div>
+                                <input ID="TbMaximumCPT" placeholder="Maximum Cost Per 1000 Views : 0 INR" ReadOnly="readonly" size="32"><br><br>
+                            </div>
+
+                            <div>
+                                <Button class="button button1" ID="BtnMax_Plus" OnClick="Max_Plus()">+</Button>
+                                <Button class="button button1" ID="BtnMax_Minus" OnClick="Max_Minus()">-</Button><br><br>
+                            </div>
+
+                            <div>
+                                <Button class="button button1" ID="BtnClearAll" onclick="ClearAll()">CLEAR ALL</Button>
+                                <Button class="button button1" ID="BtnCalculate" onclick="Calculate()">CALCULATE</Button>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div id="divResult" style="display:none;">
+                            <h2 id="YouTuberChannelName">YouTube Channel Name</h2>
+                            <p id="EffectiveViews">Effective Views : </p>
+                            <p id="EffectiveViewsWords">Words : </p><br>
+                            <p id="CPTRange">CPT Range :: </p>
+                            <p id="MinRevenue">Min Revenue :: </p>
+                            <p id="MinRevenueWords">Min Revenue :: </p><br>
+                            <p id="MaxRevenue">Max Revenue :: </p>
+                            <p id="MaxRevenueWords">Max Revenue :: </p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div style="background-color:darkred;text-align:center;padding:10px;margin-top:7px;">YouTuber Estimated Earning Calculator</div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div id="divInformation" style="display:none">
+            <table align="center">
+                <tr>
+                    <td colspan="4">
+                        <h3 style="text-align:center;color:white">YEEC (YouTuber Estimated Earning Calculator) can only calculate the estimated Google Adsense revenue based on total views and cost per thousand views!</h3>
+                    </td>
+                    <td style="display:none"></td>
+                    <td style="display:none"></td>
+                    <td style="display:none"></td>
+                </tr>
+
+                <tr>
+                    <td colspan="4">
+                        <p style="text-align:left;color:white">Keep In Mind :: Only Ad displayed video generates Ad revenue</p>
+                    </td>
+                    <td style="display:none"></td>
+                    <td style="display:none"></td>
+                    <td style="display:none"></td>
+                </tr>
+
+                <tr>
+                    <td width="256" height="256">
+                        <p style="color:white">Equation ::</p>
+                        <img src="Equation.png" width="256" height="256" />
+                    </td>
+                    <td width="400" height="256" valign="bottom">
+                        <p style="color:white;vertical-align:top">
+                            Ev = Effective Views<br>
+                            Tv = Total Video Views<br>
+                            Sv = Subtract No Ad Views
+                        </p>
+                        <p style="color:white;vertical-align:bottom">
+                            Rmin = Minimum Revenue<br>
+                            Rmax = Maximum Revenue
+                        </p>
+                        <p style="color:white;vertical-align:bottom">
+                            CPTmin = Minimum Cost Per Thousand Views<br>
+                            CPTmax = Maximum Cost Per Thousand Views<br>
+                            CPT also called as CPM (Cost Per Milli)
+                        </p>
+                    </td>
+                    <td height="256" valign="bottom">
+                        <p style="color:white;vertical-align:top">
+                            1 Thousand (K) =1000<br>
+                            1 Lakh (L) = 100 Thousand<br>
+                            1 Million (M) = 10 Lakh<br>
+                            1 Billion (B) = 1000 Million<br>
+                            1 Trillion (T) = 1000 Billion
+                        </p>
+                        <p style="color:white;vertical-align:top">
+                            A good YouTuber revenue can be generated in several ways ::<br>
+                            1. Display Advertisements<br>
+                            2. Crowd Funding / Fan Funding<br>
+                            3. Sponsorship / Influencer<br>
+                            4. Merchandise<br>
+                            5. Affiliate Marketing
+                        </p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="4">
+                        <p style="color:white">Spoiler Alert ::</p>
+                        <p style="text-align:center; color:white">YEEC tries to inspire the new/upcoming YouTuber by revealing the Ad revenue range of well known YouTuber. If you supply CPT range correctly then Minimum revenue calculated will always be the minimum amount YouTuber get paid!</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="4" align="center" valign="bottom">
+                        <p style="color:dimgray">Made Possible by Mr.Hope</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
 
 </body>
 </html>
