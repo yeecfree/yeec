@@ -226,8 +226,8 @@ function Calculate() {
     }
 
     var effectiveViews = (totalViews - subViews);
-    var minRevenue = ((effectiveViews / Thousand) * CPT_Min_CurrentValue).toFixed(0);
-    var maxRevenue = ((effectiveViews / Thousand) * CPT_Max_CurrentValue).toFixed(0);
+    var minRevenue = parseInt((effectiveViews / Thousand) * CPT_Min_CurrentValue);
+    var maxRevenue = parseInt((effectiveViews / Thousand) * CPT_Max_CurrentValue);
 
     MinimumRevenue = minRevenue;
 
