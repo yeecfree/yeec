@@ -234,12 +234,12 @@ function Calculate() {
     document.getElementById("divResult").style.display = "inline";
     document.getElementById("YouTuberChannelName").innerText = youtubeChannelName.toUpperCase();
     document.getElementById("EffectiveViews").innerText = "Effective Views : " + effectiveViews + " Views";
-    document.getElementById("EffectiveViewsWords").innerText = "Words :" + NumberToWords(effectiveViews) + " Views";
+    document.getElementById("EffectiveViewsWords").innerText = "Words : " + NumberToWords(effectiveViews) + " Views";
     document.getElementById("CPTRange").innerText = "CPT Range :: [" + CPT_Min_CurrentValue + " - " + CPT_Max_CurrentValue + "]" + " " + currency;
-    document.getElementById("MinRevenue").innerText = "Min Revenue :: " + minRevenue + " " + currency;
-    document.getElementById("MinRevenueWords").innerText = "Words :" + NumberToWords(minRevenue) + " " + currency;
-    document.getElementById("MaxRevenue").innerText = "Max Revenue :: " + maxRevenue + " " + currency;
-    document.getElementById("MaxRevenueWords").innerText = "Words :" + NumberToWords(maxRevenue) + " " + currency;
+    document.getElementById("MinRevenue").innerText = "Min Revenue : " + minRevenue + " " + currency;
+    document.getElementById("MinRevenueWords").innerText = "Words : " + NumberToWords(minRevenue) + " " + currency;
+    document.getElementById("MaxRevenue").innerText = "Max Revenue : " + maxRevenue + " " + currency;
+    document.getElementById("MaxRevenueWords").innerText = "Words : " + NumberToWords(maxRevenue) + " " + currency;
 
     window.scrollTo(0, document.body.scrollHeight);
 
