@@ -1,23 +1,26 @@
 ﻿function Converter() {
-    window.open("https://www.google.com/search?q=1+inr+to+usd");
+    var url = "https://www.google.com/search?q=" + MinimumRevenue + "+" + currency + "+to+USD";
+    window.open(url);
 }
 
 function Calculator() {
-    document.getElementById("liCalculator").style.backgroundColor = "blue";
-    document.getElementById("liInformation").style.backgroundColor = "#333";
+    //document.getElementById("liCalculator").style.backgroundColor = "blue";
+    //document.getElementById("liInformation").style.backgroundColor = "#333";
 
     document.getElementById("divResult").style.display = "none";
     document.getElementById("divCalculator").style.display = "inline";
     document.getElementById("divInformation").style.display = "none";
 }
 
-function Youtube() {
-    window.open("https://www.youtube.com");
+function YouTube()
+{
+    document.getElementById("Youtube").target = "_blank";
+    document.getElementById("Youtube").href = "https://www.youtube.com";
 }
 
 function Information() {
-    document.getElementById("liCalculator").style.backgroundColor = "#333";
-    document.getElementById("liInformation").style.backgroundColor = "blue";
+    //document.getElementById("liCalculator").style.backgroundColor = "#333";
+    //document.getElementById("liInformation").style.backgroundColor = "blue";
 
     document.getElementById("divResult").style.display = "none";
     document.getElementById("divCalculator").style.display = "none";
@@ -189,6 +192,8 @@ function ClearAll() {
     document.getElementById("divResult").style.display = "none";
 }
 
+var MinimumRevenue = 1;
+
 function Calculate() {
     var youtubeChannelName = document.getElementById("TbYouTubeChannelName").value;
     var totalViews = parseInt(document.getElementById("TbTotalVideoViews").value);
@@ -203,15 +208,20 @@ function Calculate() {
         return;
     }
 
+    if (isNaN(subViews)) {
+        subViews = 0;
+    }
+
     if (subViews > totalViews) {
         alert("Message : Subtract No Ad Views cannot be greater than Total Video Views");
         return;
     }
 
     var effectiveViews = (totalViews - subViews);
-    var minRevenue = (effectiveViews / Thousand) * CPT_Min_CurrentValue;
-    var maxRevenue = (effectiveViews / Thousand) * CPT_Max_CurrentValue;
+    var minRevenue = ((effectiveViews / Thousand) * CPT_Min_CurrentValue).toFixed(0);
+    var maxRevenue = ((effectiveViews / Thousand) * CPT_Max_CurrentValue).toFixed(0);
 
+    MinimumRevenue = minRevenue;
 
     document.getElementById("divResult").style.display = "inline";
     document.getElementById("YouTuberChannelName").innerText = youtubeChannelName.toUpperCase();
@@ -222,6 +232,8 @@ function Calculate() {
     document.getElementById("MinRevenueWords").innerText = "Words :" + NumberToWords(minRevenue) + " " + currency;
     document.getElementById("MaxRevenue").innerText = "Max Revenue :: " + maxRevenue + " " + currency;
     document.getElementById("MaxRevenueWords").innerText = "Words :" + NumberToWords(maxRevenue) + " " + currency;
+
+    window.scrollTo(0, document.body.scrollHeight);
 
 }
 
@@ -265,6 +277,9 @@ function NumberToWords(Value) {
         word += " and " + Value;
     else if (Value != 0)
         word += Value;
+
+    if (originalValue == 0)
+        return "Zero";
 
     return word;
 }
@@ -345,4 +360,3 @@ function TbSubtractNoAdViews_TextChanged() {
         }
     }
 }
-
