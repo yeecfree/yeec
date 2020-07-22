@@ -1,32 +1,40 @@
-﻿function Converter() {
+﻿
+function Converter() {
+    ButtonSelector("active", "", "", "");
+
     var url = "https://www.google.com/search?q=" + MinimumRevenue + "+" + currency + "+to+USD";
     window.open(url);
 }
 
 function Calculator() {
-    //document.getElementById("liCalculator").style.backgroundColor = "blue";
-    //document.getElementById("liInformation").style.backgroundColor = "#333";
+    ButtonSelector("", "active", "", "");
 
     document.getElementById("divResult").style.display = "none";
     document.getElementById("divCalculator").style.display = "inline";
     document.getElementById("divInformation").style.display = "none";
 }
 
-function YouTube()
-{
-    document.getElementById("Youtube").target = "_blank";
-    document.getElementById("Youtube").href = "https://www.youtube.com";
+function YouTube() {
+    ButtonSelector("", "", "active", "");
+
+    document.getElementById("aYoutube").target = "_blank";
+    document.getElementById("aYoutube").href = "https://m.youtube.com";
 }
 
 function Information() {
-    //document.getElementById("liCalculator").style.backgroundColor = "#333";
-    //document.getElementById("liInformation").style.backgroundColor = "blue";
+    ButtonSelector("", "", "", "active");
 
     document.getElementById("divResult").style.display = "none";
     document.getElementById("divCalculator").style.display = "none";
     document.getElementById("divInformation").style.display = "inline";
 }
 
+function ButtonSelector(a, b, c, d) {
+    document.getElementById("aConverter").className = a;
+    document.getElementById("aCalculator").className = b;
+    document.getElementById("aYoutube").className = c;
+    document.getElementById("aInformation").className = d;
+}
 var currency = "INR";
 var CPT_Min_MaxValue = 300, CPT_Min_CurrentValue = 0, CPT_Max_MaxValue = 450, CPT_Max_CurrentValue = 0;
 var firstPressed;

@@ -96,6 +96,23 @@ li {
             border-bottom: 2px solid white;
         }
 
+        li a:active {
+            background-color: #222431;
+            box-sizing: border-box;
+            border: none;
+            border-bottom: 2px solid red;
+        }
+
+.btn {
+}
+
+.active {
+    background-color: #222431;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid white;
+}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
