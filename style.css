@@ -83,14 +83,17 @@ li {
 
     li a {
         display: inline-block;
-        color: white;
+        color: #222431;
         text-align: center;
         padding: 14px 16px;
         text-decoration: none;
     }
 
         li a:hover {
-            background-color: white;
+            background-color: #222431;
+            box-sizing: border-box;
+            border: none;
+            border-bottom: 2px solid white;
         }
 
 input::-webkit-outer-spin-button,
