@@ -16,9 +16,6 @@ function Calculator() {
 
 function YouTube() {
     ButtonSelector("", "", "active", "");
-
-    document.getElementById("aYoutube").target = "_blank";
-    document.getElementById("aYoutube").href = "https://m.youtube.com";
 }
 
 function Information() {
