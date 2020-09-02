@@ -139,19 +139,19 @@ function ddlCurrency_IndexChangedEvent() {
 
     if (currency == "AED") {
         CPT_Min_MaxValue = 15;
-        CPT_Max_MaxValue = 22;
+        CPT_Max_MaxValue = 25;
     }
     else if (currency == "CAD") {
         CPT_Min_MaxValue = 5;
-        CPT_Max_MaxValue = 8;
+        CPT_Max_MaxValue = 10;
     }
     else if (currency == "USD") {
         CPT_Min_MaxValue = 4;
-        CPT_Max_MaxValue = 6;
+        CPT_Max_MaxValue = 10;
     }
     else if (currency == "EUR" || currency == "GBP") {
-        CPT_Min_MaxValue = 3;
-        CPT_Max_MaxValue = 5;
+        CPT_Min_MaxValue = 4;
+        CPT_Max_MaxValue = 8;
     }
     else if (currency == "INR") {
         CPT_Min_MaxValue = 300;
@@ -159,7 +159,7 @@ function ddlCurrency_IndexChangedEvent() {
     }
     else if (currency == "KWD" || currency == "OMR") {
         CPT_Min_MaxValue = 2;
-        CPT_Max_MaxValue = 3;
+        CPT_Max_MaxValue = 6;
     }
     else {
         currency = "INR";
