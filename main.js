@@ -1,36 +1,31 @@
 ﻿
 function Converter() {
-    ButtonSelector("active", "", "", "");
+    ButtonSelector("active", "", "");
 
     var url = "https://www.google.com/search?q=" + MinimumRevenue + "+" + currency + "+to+USD";
     window.open(url);
 }
 
 function Calculator() {
-    ButtonSelector("", "active", "", "");
+    ButtonSelector("", "active", "");
 
     document.getElementById("divResult").style.display = "none";
     document.getElementById("divCalculator").style.display = "inline";
     document.getElementById("divInformation").style.display = "none";
 }
 
-function YouTube() {
-    ButtonSelector("", "", "active", "");
-}
-
 function Information() {
-    ButtonSelector("", "", "", "active");
+    ButtonSelector("", "", "active");
 
     document.getElementById("divResult").style.display = "none";
     document.getElementById("divCalculator").style.display = "none";
     document.getElementById("divInformation").style.display = "inline";
 }
 
-function ButtonSelector(a, b, c, d) {
+function ButtonSelector(a, b, c) {
     document.getElementById("aConverter").className = a;
     document.getElementById("aCalculator").className = b;
-    document.getElementById("aYoutube").className = c;
-    document.getElementById("aInformation").className = d;
+    document.getElementById("aInformation").className = c;
 }
 var currency = "INR";
 var CPT_Min_MaxValue = 300, CPT_Min_CurrentValue = 0, CPT_Max_MaxValue = 450, CPT_Max_CurrentValue = 0;
