@@ -1,4 +1,4 @@
-﻿* {
+* {
     box-sizing: border-box;
 }
 
@@ -65,7 +65,7 @@
     background-color: #222431;
     border: 10px groove darkred;
     padding: 20px;
-    margin: 5px;
+    margin: 0px 400px 0px 400px;
 }
 
 ul {
