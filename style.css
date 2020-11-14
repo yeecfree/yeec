@@ -63,9 +63,9 @@
 
 .divs {
     background-color: #222431;
-    border: 10px groove darkred;
+    border: 10px groove red;
     padding: 20px;
-    margin: 0px 600px 0px 600px;
+    margin: 0px 1000px 0px 1000px;
 }
 
 ul {
